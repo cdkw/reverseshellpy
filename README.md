@@ -1,3 +1,16 @@
+<h1 align="center">Powerful UDP Flood attack tool written in Python 3</h1>
+
+<p align="center">
+<a href="#"><img alt="reverseshellpy forks" src="https://img.shields.io/github/forks/cdkw/reverseshellpy?style=for-the-badge"></a>
+<a href="#"><img alt="reverseshellpy last commit (main)" src="https://img.shields.io/github/last-commit/cdkw/reverseshellpy/main?color=green&style=for-the-badge"></a>
+<a href="#"><img alt="reverseshellpy Repo stars" src="https://img.shields.io/github/stars/cdkw/reverseshellpy?style=for-the-badge&color=yellow"></a>
+<a href="#"><img alt="reverseshellpy License" src="https://img.shields.io/github/license/cdkw/reverseshellpy?color=orange&style=for-the-badge"></a>
+<a href="https://github.com/cdkw/reverseshellpy/issues"><img alt="reverseshellpy issues" src="https://img.shields.io/github/issues/cdkw/reverseshellpy?color=purple&style=for-the-badge"></a>
+
+<p align="center">Do not attack anyone without their consent.</p>
+<p align="center"><img src="https://i.imgur.com/UdclI8E.png" alt="SCRIPT"></p>
+
+
 # Reverse Shell Using Python
 Reverse shell payload only using python
 = EDUCATIONAL PURPOSES ONLY =
