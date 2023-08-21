@@ -1,4 +1,4 @@
-<h1 align="center">Powerful UDP Flood attack tool written in Python 3</h1>
+<h1 align="center">Reverse shell payload only using python</h1>
 
 <p align="center">
 <a href="#"><img alt="reverseshellpy forks" src="https://img.shields.io/github/forks/cdkw/reverseshellpy?style=for-the-badge"></a>
@@ -8,12 +8,8 @@
 <a href="https://github.com/cdkw/reverseshellpy/issues"><img alt="reverseshellpy issues" src="https://img.shields.io/github/issues/cdkw/reverseshellpy?color=purple&style=for-the-badge"></a>
 
 <p align="center">Do not attack anyone without their consent.</p>
-<p align="center"><img src="https://i.imgur.com/UdclI8E.png" alt="SCRIPT"></p>
+<p align="center"><img src="https://i.imgur.com/uKFy6zZ.png" alt="SCRIPT"></p>
 
-
-# Reverse Shell Using Python
-Reverse shell payload only using python
-= EDUCATIONAL PURPOSES ONLY =
 
 # Usage:
 
